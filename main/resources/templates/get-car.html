@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<title>Get name</title>
+<body>
+
+    <form action="/get-car" method="GET">
+        Input mark: <input type="text" name="mark">
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+
+    <br>
+    <tr th:each="car : ${listOfCars}">
+        <b>Марка: </b><td th:text="${car.mark}"></td>
+        <br>
+        <b>Модель: </b><td th:text="${car.model}"></td>
+        <br>
+        <b>Вага: </b><td th:text="${car.weight}"></td>
+        <br>
+        <b>Рік: </b><td th:text="${car.year}"></td>
+        <br>
+        <b>Макс. швидкість: </b><td th:text="${car.maxSpeed}"></td>
+        <br>
+        <br>
+    </tr>
+
+
+</body>
+</html>

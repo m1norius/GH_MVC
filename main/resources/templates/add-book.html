@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add book</title>
+</head>
+<body>
+
+    <form action="/list-book" method="post">
+        Input name:<br>
+
+        <label>
+            <input type="text" name="name">
+        </label><br>
+
+        Message:<br>
+        <label>
+            <textarea name="message" rows="10" cols="20"></textarea>
+        </label>
+        <br>
+        Rating:
+        <br>
+        <label>
+            <select name="value">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+    <tr th:each="instance : ${sessionDataMap}">
+        <b>Date: </b><td th:text="${instance.key}"></td>
+        <br>
+        <b>Name: </b><td th:text="${instance.value.name}"></td>
+        <br>
+        <b> Message: </b><td th:text="${instance.value.message}"></td>
+        <br>
+        <b>Rating: </b><td th:text="${instance.value.value}"></td>
+        <br>
+        <br>
+    </tr>
+
+</body>
+</html>
